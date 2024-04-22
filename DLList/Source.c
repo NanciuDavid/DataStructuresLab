@@ -2,7 +2,7 @@
 #include "DataUtil.h"
 #include "ListUtil.h"
 #define LINE_SIZE 256
-void main()
+int main()
 {
 	//struct Node list0 = {.info = NULL, .next =NULL};
 	//struct Node* list1 = NULL;

@@ -65,7 +65,25 @@ void deleteList(ListNode** pHeadList)
 		deleteNode(tmp);
 	}
 }
+
 void deleteNodeByKey(ListNode** head, const char* key)
 {
+    ListNode *tmp = *head;
 
+    while(tmp) {
+        if(strcmp(tmp->info->name, key) == 0) {
+            if (tmp->prev != NULL) {
+                tmp->prev->next = tmp->next;  // Update next of previous node
+            }
+            if (tmp->next != NULL) {
+                tmp->next->prev= tmp->prev;  // Update prev of next node
+            }
+            if (tmp == *head) {
+                *head = tmp->next;  // Update head if deleting the first node
+            }
+            deleteNode(tmp);  // Free memory for the node
+            return;  // Exit after deleting the node
+        }
+        tmp = tmp->next;
+    }
 }

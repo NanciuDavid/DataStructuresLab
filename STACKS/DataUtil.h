@@ -1,31 +1,38 @@
 #pragma once
 #include "main.h"
-union Reference
-{
-	unsigned char intRef;
-	unsigned short extRef;
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+
+#define CRT_SECURE_NO_WARNINGS
+
+union Reference {
+    unsigned char intRef;
+    unsigned short extRef;
 };
-typedef union Reference Reference;
-typedef struct Student
-{
-	char* name;
-	float income;
-	Reference reference;
+
+typedef union Reference reference;
+
+typedef struct student {
+    char *name;
+    float income;
+    reference reference;
 }Student;
 
-Student* createStudent(const char* name, float income, unsigned short ref)
-{
-	//1.declare variable
-	Student* stud = NULL;
-	//2.allocate memory
-	stud = (Student*)malloc(sizeof(Student));
-	//3.init attributes
-	stud->name = (char*)malloc(strlen(name) + 1);
-	strcpy(stud->name, name);
-	stud->income = income;
-	stud->reference.extRef = ref;
-	//4.return student
-	return stud;
+Student *createStudent(const char *name, float income, unsigned short ref) {
+    Student *student = NULL;
+
+    student = malloc(sizeof(Student));
+
+    student->name = malloc(strlen(name) +1);
+
+    strcpy(student->name, name);
+
+    student->income = income;
+
+    student->reference.extRef = ref;
+
+    return student;
 }
 
 void printStudent(Student* stud)
@@ -45,6 +52,7 @@ void printStudent(Student* stud)
 		}
 	}
 }
+
 void deleteStudent(Student* stud)
 {
 	if (stud != NULL)

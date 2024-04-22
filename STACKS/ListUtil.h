@@ -1,5 +1,6 @@
 #pragma once
 #include "DataUtil.h"
+
 typedef struct Node
 {
 	Student* info;

@@ -1,10 +1,10 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "DataUtil.h"
 #include "ListUtil.h"
-
+#include "main.h"
 #define LINE_SIZE 256
 
-void main()
+int main(void)
 {
 	//struct Node list0 = {.info = NULL, .next =NULL};
 	//struct Node* list1 = NULL;
@@ -34,7 +34,8 @@ void main()
 			//insertStudent(&headList, stud);
 			headList = insertStudent(headList, stud);
 		}
-		deleteList(&headList);
+		makeListCircular(headList);
+		printList(headList);
 		//data structure operation
 	}
 }

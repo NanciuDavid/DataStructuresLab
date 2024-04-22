@@ -3,10 +3,13 @@
 #include "ListUtil.h"
 #include "StackUtil.h"
 #include <stdbool.h>
+#include <string.h>
+#include <stdio.h>
+
 
 #define LINE_SIZE 256
 
-void main()
+int main()
 {
 	//struct Node list0 = {.info = NULL, .next =NULL};
 	//struct Node* list1 = NULL;

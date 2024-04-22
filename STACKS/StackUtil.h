@@ -16,12 +16,15 @@ StackNode* createStackNode(Student* info)
 	return node;
 }
 
+
 StackNode* pushNode(StackNode* stack, Student* info)
 {
 	StackNode* node = createStackNode(info);
 	node->next = stack;
 	return node;
 }
+
+
 Student* peekNode(StackNode* stack)
 {
 	Student* info = NULL;
@@ -31,6 +34,7 @@ Student* peekNode(StackNode* stack)
 	}
 	return info;
 }
+
 Student* popNode(StackNode** stack)
 {
 	Student* info = NULL;
@@ -53,6 +57,7 @@ void deleteStack(StackNode** stack)
 		deleteStudent(inf);
 	}
 }
+
 void displayStack(StackNode** stack)
 {
 	StackNode* tmpStack = NULL;

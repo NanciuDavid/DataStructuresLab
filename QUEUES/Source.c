@@ -3,7 +3,7 @@
 
 #define LINE_SIZE 256
 
-void main()
+int main()
 {
 	QueueNode* tailQueue = NULL;
 
