@@ -1,18 +1,39 @@
 {
-    "configurations": [
-        {
-            "name": "C/C++: clang build and debug active file",
-            "type": "cppdbg",
-            "request": "launch",
-            "program": "${fileDirname}/${fileBasenameNoExtension}",
-            "args": [],
-            "stopAtEntry": false,
-            "cwd": "${fileDirname}",
-            "environment": [],
-            "externalConsole": false,
-            "MIMode": "lldb",
-            "preLaunchTask": "C/C++: clang build active file"
-        }
-    ],
-    "version": "2.0.0"
+  "configurations": [
+    {
+      "name": "C/C++: clang build and debug active file",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${fileDirname}/${fileBasenameNoExtension}",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${fileDirname}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "lldb",
+      "preLaunchTask": "C/C++: clang build active file"
+    },
+    {
+      "name": "C/C++: gcc build and debug active file",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${fileDirname}/${fileBasenameNoExtension}",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${fileDirname}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "lldb",
+      "preLaunchTask": "C/C++: gcc build active file"
+    },
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/davidnanciu/Desktop/Doinea Seminare/ModelTest/Test1071",
+      "program": "/Users/davidnanciu/Desktop/Doinea Seminare/ModelTest/Test1071/build/Debug/outDebug"
+    }
+  ],
+  "version": "2.0.0"
 }
