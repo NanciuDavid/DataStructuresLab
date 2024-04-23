@@ -1,6 +1,5 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
-#include <malloc.h>
 #include <string.h>
 #include <stdlib.h>
 
@@ -54,10 +53,10 @@ ListNode* testMerge(ListNode*, ListNode*);
 
 #define LINE_SIZE 128
 #define AGENDA_SIZE 26
-void main()
+int main()
 {
-	FILE* pFileInt = fopen("DataInt.txt", "r");
-	FILE* pFileExt = fopen("DataExt.txt", "r");
+	FILE* pFileInt = fopen("Data.txt", "r");
+	FILE* pFileExt = fopen("Data.txt", "r");
 	ListNode* listInt = NULL;
 	ListNode* listExt = NULL;
 	if (pFileInt)

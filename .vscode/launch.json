@@ -31,8 +31,8 @@
       "type": "lldb",
       "request": "launch",
       "args": [],
-      "cwd": "/Users/davidnanciu/Desktop/Doinea Seminare/ModelTest/Test1071",
-      "program": "/Users/davidnanciu/Desktop/Doinea Seminare/ModelTest/Test1071/build/Debug/outDebug"
+      "cwd": "/Users/davidnanciu/Desktop/Doinea Seminare/ModelTest/TestRomana2023",
+      "program": "/Users/davidnanciu/Desktop/Doinea Seminare/ModelTest/TestRomana2023/build/Debug/outDebug"
     }
   ],
   "version": "2.0.0"
