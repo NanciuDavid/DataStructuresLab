@@ -75,20 +75,25 @@ Student* getHT(HashNode** hashTable, const char* key)
 }
 
 // Function to insert student information into the hash table
-void putHT(HashNode*** hashTable, Student* stud)
-{
-    if (*hashTable == NULL) // If hash table is not initialized
-    {
-        (*hashTable) = (HashNode**)malloc(sizeof(HashNode*) * HASHT_SIZE); // Allocate memory for hash table
-        for (int i = 0; i < HASHT_SIZE; i++) // Initialize each element of hash table to NULL
+void putHT(HashNode ***hashTable, Student *stud) {
+    if (*hashTable == NULL) {
+        (*hashTable) = (HashNode **)malloc(sizeof(HashNode *) * HASHT_SIZE);
+        for (int i = 0; i < HASHT_SIZE; i++)
             (*hashTable)[i] = NULL;
     }
-    HashNode* node = createHashNode(stud); // Create a new node with student information
-    int hashValue = fHash(stud->name); // Calculate hash value for the student name
+    
+    HashNode *node = createHashNode(stud);
+    int hashValue = fHash(stud->name);
 
-    // Insert the new node into the hash table
-    node->next = (*hashTable)[hashValue]; // Update next pointer of the new node
-    (*hashTable)[hashValue] = node; // Update hash table with the new node
+    if ((*hashTable)[hashValue] == NULL) { // No collision, insert directly
+        (*hashTable)[hashValue] = node;
+    } else { // Collision occurred, append to collision list
+        HashNode *current = (*hashTable)[hashValue];
+        while (current->next != NULL) {
+            current = current->next;
+        }
+        current->next = node;
+    }
 }
 
 // Function to print the contents of the hash table
