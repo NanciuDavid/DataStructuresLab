@@ -9,6 +9,7 @@ int main(void)
 	HashNode** hashTable = NULL;
 	//PHashNode* hashTable1;
 	//HashTable hashTable2;
+	Student **array;
 
 	FILE* pFile = fopen("Data.txt", "r");
 	if (pFile)
@@ -28,14 +29,14 @@ int main(void)
 			reference = atoi(token);
 			Student* stud = createStudent(name, income, reference);
 			putHT(&hashTable, stud);
-		}
-		printHashTable(hashTable);
-		deleteHT(hashTable, "Popa Maria");
-		deleteHT(hashTable, "Paunescu Alina");
-		deleteHT(hashTable, "Petre Laura");
-		printHashTable(hashTable);
-		//data structure operation
+		}	
 		Student* info = getHT(hashTable, "Popa Maria");
 		printStudent(info);
+		array = internalStudens(hashTable);
+		for(int i = 0 ; i < HASHT_SIZE; i++) {
+			if(array[i] != NULL) {
+				printStudent(array[i]);
+			}
+		}
 	}
 }

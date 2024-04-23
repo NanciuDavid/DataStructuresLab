@@ -103,3 +103,58 @@ void printHashTable(HashNode **HashTable) {
     } 
     printf("\n\tEND");
 }
+
+
+void deleteLastElement(HashNode **hashTable, Student *stud) {
+    if (*hashTable == NULL) {
+        return;
+    } else {
+        int hashValue = fHash(stud->name);
+        HashNode *current = hashTable[hashValue];
+        HashNode *prev = NULL;
+
+        // Traverse the linked list to find the last node
+        while (current != NULL && current->next != NULL) {
+            prev = current;
+            current = current->next;
+        }
+
+        // Check if the last node is found
+        if (current != NULL) {
+            // If the last node is also the first node
+            if (prev == NULL) {
+                hashTable[hashValue] = NULL;
+            } else {
+                prev->next = NULL; // Disconnect the last node
+            }
+            free(current->info); // Free memory for the Student structure
+            free(current); // Free memory for the HashNode structure
+        }
+    }
+}
+
+Student **internalStudens(HashNode **hashNode)
+{
+    Student** array = (Student**)malloc((HASHT_SIZE+1) * sizeof(Student));
+
+    for(int i = 0 ; i < HASHT_SIZE ; i ++) {
+        array[i] = NULL;
+    }
+
+    int index = 0 ;
+    for(int i = 0 ; i < HASHT_SIZE ; i++) {
+        if(hashNode[i] != NULL) {
+            HashNode *collisionList = hashNode[i];
+            while(collisionList != NULL && collisionList->next != NULL) {
+                if(collisionList->info->reference.intRef != 0) {
+                array[index] = collisionList->info;
+                index ++;
+                }
+                collisionList = collisionList->next;
+            }
+        }
+    }
+    
+    return array;
+    
+}
